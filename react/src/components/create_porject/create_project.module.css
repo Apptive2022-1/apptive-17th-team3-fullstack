@@ -1,8 +1,15 @@
-.createProject {
+.projectAll {
+    display: flex;
+    justify-content: flex-end;
     background-color: red;
     margin: 16px 0 16px 8px;
-    padding: 24px;
+    padding: 12px;
     height: 40%;
+    overflow: auto;
+}
+
+.createProject {
+    width: 40%;
 }
 
 .text {
@@ -47,4 +54,11 @@
 
 .btnText {
     font-size: 18px;
+}
+
+/* project info */
+.project {
+    display: flex;
+    align-items: flex-end;
+    width: 60%;
 }

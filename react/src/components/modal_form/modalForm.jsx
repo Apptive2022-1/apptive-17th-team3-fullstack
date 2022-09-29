@@ -19,7 +19,7 @@ const customStyles = {
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 // Modal.setAppElement('#yourAppElement');
 
-function ModalForm({closeModal, modalIsOpen}) {
+function ModalForm({closeModal, modalIsOpen, projectName}) {
 //   let subtitle;
   const [focus, setFocus] = useState(false);
   const [ischeckTime, setIscheckTime] = useState(false);
@@ -60,7 +60,11 @@ function ModalForm({closeModal, modalIsOpen}) {
         {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
         <form className={styles.project_form}>
             <label htmlFor="project_name">프로젝트명</label>
-            <input type="text" id='project_name' name='project_name' required/>
+          <input type="text" id='project_name' name='project_name'
+            required
+            value={projectName !== null ? projectName : undefined}
+            disabled = {projectName!==null ? true : false}
+          />
             <label htmlFor="project_content">상세작업명</label>
           <input type="text" id='project_content' name='project_content' required />
           <div>
@@ -92,6 +96,7 @@ function ModalForm({closeModal, modalIsOpen}) {
                     <option value="40">40</option>
                     <option value="45">45</option>
                     <option value="50">50</option>
+                    <option value="55">55</option>
                 </select>
                 <label htmlFor="minute">분</label>           
             </div>           

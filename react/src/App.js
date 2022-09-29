@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { gapi } from 'gapi-script';
 import Navbar from './components/navbar/navbar';
 import CreateProject from './components/create_porject/createProject';
-import RenderInWindow from './components/test/test';
 import Calendar from './components/calendar/calendar';
 import ModalForm from './components/modal_form/modalForm';
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
@@ -22,9 +21,17 @@ function App() {
 
 
   const [user, setUser] = useState({});
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [checkModal, setCheckModal] = useState(false); // false일 때 프로젝트 생성창,
+  // true일 때 일정 추가하기
 
-  function openModal() {
+  function openModal(e) {
+    if (e.target.innerHTML === '+ 일정 추가하기') {
+      setCheckModal(true);
+    }
+    else {
+      setCheckModal(false)
+    }
       setIsOpen(true);
   }
 
@@ -70,6 +77,7 @@ function App() {
         {modalIsOpen && <ModalForm
           closeModal={closeModal}
           modalIsOpen={modalIsOpen}
+          projectName={checkModal ? "test" : null}
         />}
       </div>
       <Calendar/>
