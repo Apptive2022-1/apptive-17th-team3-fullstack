@@ -1,0 +1,11 @@
+.container {
+    width: 18%;
+    margin: 16px;
+    background-color: yellow;
+}
+
+.project_form {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
